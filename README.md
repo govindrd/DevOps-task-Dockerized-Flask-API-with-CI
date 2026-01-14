@@ -29,9 +29,7 @@ Response:
 ```json
 { "status": "ok" }
 
-## 📸 Screenshots
 
-### Docker Compose Running
-screenshots(img)/docker-compose.png
+
 
 

@@ -28,3 +28,9 @@ Health check endpoint used by Docker.
 Response:
 ```json
 { "status": "ok" }
+
+## 📸 Screenshots
+
+### Docker Compose Running
+![Docker Compose](screenshots(img)/docker-compose.png)
+

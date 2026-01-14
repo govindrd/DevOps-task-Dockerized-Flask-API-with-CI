@@ -32,5 +32,6 @@ Response:
 ## 📸 Screenshots
 
 ### Docker Compose Running
-![Docker Compose](screenshots(img)/docker-compose.png)
+screenshots(img)/docker-compose.png
+
 

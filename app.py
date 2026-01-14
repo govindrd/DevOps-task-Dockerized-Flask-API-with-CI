@@ -1,18 +1,25 @@
 from flask import Flask, request, jsonify
 import os
 import logging
+import sys
 
 app = Flask(__name__)
 
 PORT = os.getenv("PORT")
-if not PORT:
-    raise Exception("PORT environment variable not set")
+APP_NAME = os.getenv("APP_NAME")
+
+if not PORT or not APP_NAME:
+    print("Missing required environment variables")
+    sys.exit(1)
+
+# Create logs folder
+os.makedirs("logs", exist_ok=True)
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("app.log"),
+        logging.FileHandler("logs/app.log"),
         logging.StreamHandler()
     ]
 )
@@ -20,7 +27,7 @@ logging.basicConfig(
 @app.route("/", methods=["GET"])
 def home():
     app.logger.info("Home endpoint called")
-    return jsonify(message="API is running")
+    return jsonify(app=APP_NAME, message="API is running")
 
 @app.route("/echo", methods=["POST"])
 def echo():
